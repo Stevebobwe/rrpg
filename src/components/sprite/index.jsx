@@ -10,7 +10,7 @@ export default function Sprite({image, data}) {
             width: `${w}px`,
             backgroundImage: `url(${image})`,
             backgroundRepeat: "no-repeat",
-            backgroundPostion: `-${x}px -${y}px`
+            backgroundPosition: `-${x}px -${y}px`
         }}
     />
 }
