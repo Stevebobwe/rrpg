@@ -4,16 +4,14 @@ import useKeyPress from "../../hooks/useKeyPress";
 import useWalk from "../../hooks/useWalk";
 
 export default function Player({skin}) {
-    const {dir, step, walk} = useWalk(3);
+    const {dir, step, walk, pos} = useWalk(3);
     const data = {
         w: 32,
         h: 32
     };
 
     useKeyPress((e) => {
-        const dir = e.key.replace("Arrow", "").toLowerCase();
-        //walk(e.key.replace("Arrow", "").toLowerCase());
-        walk(dir);
+        walk(e.key.replace("Arrow", "").toLowerCase());
 
         // Prevents default while allowing F12
         if (e.keyCode !== 123) {
@@ -22,6 +20,6 @@ export default function Player({skin}) {
     });
 
     return (
-        <Actor sprite={`/sprites/skins/${skin}.png`} data={data} step={step} dir={dir}/>
+        <Actor sprite={`/sprites/skins/${skin}.png`} data={data} step={step} dir={dir} pos={pos}/>
     )
 }
